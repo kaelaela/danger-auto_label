@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = AutoLabel::VERSION
   spec.authors       = ['kaelaela']
   spec.email         = ['kaelaela.31@gmail.com']
-  spec.description   = %q{A short description of danger-auto_label.}
-  spec.summary       = %q{A longer description of danger-auto_label.}
+  spec.description   = %q{A simple auto labeler for issue or PR. Made by Danger plugin.}
+  spec.summary       = %q{No more set label to pull request manually. Example, you can set labels simply by changing the PR title.}
   spec.homepage      = 'https://github.com/kaelaela/danger-auto_label'
   spec.license       = 'MIT'
 
