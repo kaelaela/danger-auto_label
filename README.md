@@ -1,15 +1,14 @@
 ### auto_label
 
-No more set label to pull request manually.
+No more set label to issue or pull request manually.  
 Example, you can set labels simply by changing the PR title.
 
-if github.pr_title.include? "[WIP]"
-  auto_label.set_wip(github.pr_json["number"])
-end
-
-<blockquote>Very simple usage. Set wip label automatically when the PR title contains '[WIP]'.
-  <pre></pre>
-</blockquote>
+> Very simple usage. Set wip label automatically when the PR title contains '[WIP]'.
+  ```sample.rb
+  if github.pr_title.include? "[WIP]"
+    auto_label.set_wip(github.pr_json["number"])
+  end
+  ```
 
 #### Methods
 
