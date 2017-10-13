@@ -6,11 +6,11 @@ require 'auto_label/gem_version.rb'
 Gem::Specification.new do |spec|
   spec.name          = 'danger-auto_label'
   spec.version       = AutoLabel::VERSION
-  spec.authors       = ['Maekawa Yuichi']
-  spec.email         = ['maekawa_yuichi@cyberagent.co.jp']
+  spec.authors       = ['kaelaela']
+  spec.email         = ['kaelaela.31@gmail.com']
   spec.description   = %q{A short description of danger-auto_label.}
   spec.summary       = %q{A longer description of danger-auto_label.}
-  spec.homepage      = 'https://github.com/Maekawa Yuichi/danger-auto_label'
+  spec.homepage      = 'https://github.com/kaelaela/danger-auto_label'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)

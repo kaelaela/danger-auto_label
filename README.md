@@ -1,20 +1,18 @@
-# danger-auto_label
+### auto_label
 
-A description of danger-auto_label.
+No more set label to pull request manually.
+Example, you can set labels simply by changing the PR title.
 
-## Installation
+if github.pr_title.include? "[WIP]"
+  auto_label.set_wip(github.pr_json["number"])
+end
 
-    $ gem install danger-auto_label
+<blockquote>Very simple usage. Set wip label automatically when the PR title contains '[WIP]'.
+  <pre></pre>
+</blockquote>
 
-## Usage
+#### Methods
 
-    Methods and attributes from this plugin are available in
-    your `Dangerfile` under the `auto_label` namespace.
+`set_wip` - Set WIP label to PR.
 
-## Development
-
-1. Clone this repo
-2. Run `bundle install` to setup dependencies.
-3. Run `bundle exec rake spec` to run the tests.
-4. Use `bundle exec guard` to automatically have tests run as you make changes.
-5. Make your changes.
+`set` - Set any labels to PR by this.
