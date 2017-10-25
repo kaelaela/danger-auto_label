@@ -7,7 +7,7 @@ module Danger
   #   auto_label.set_wip(github.pr_json["number"])
   # end
   #
-  # @see  Maekawa Yuichi/danger-auto_label
+  # @see  kaelaela/danger-auto_label
   # @tags github auto-label
   #
   class DangerAutoLabel < Plugin
@@ -38,7 +38,7 @@ module Danger
     #          A number of issue or pull request for set label.
     # @param   [String] name
     #          A new label name.
-    # @param   [Number] color
+    # @param   [String] color
     #          A color, in hex, without the leading #. Default is 'fef2c0'
     # @return  [void]
     def set(pr, name, color)
