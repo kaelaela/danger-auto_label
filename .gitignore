@@ -2,3 +2,6 @@
 pkg
 .idea/
 .yardoc
+
+/.bundle/
+/vendor/bundle
