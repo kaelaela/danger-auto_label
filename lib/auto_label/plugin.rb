@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Danger
   # No more set label to pull request manually.
   # Example, you can set labels simply by changing the PR title.
   #
-  # @example Very simple usage. Set wip label automatically when the PR title contains '[WIP]'.
+  # @example Very simple usage. Set wip label automatically when the PR title contains "[WIP]".
   # if github.pr_title.include? "[WIP]"
-  #   auto_label.set_wip(github.pr_json["number"])
+  #   auto_label.wip=(github.pr_json["number"])
   # end
   #
   # @see  kaelaela/danger-auto_label
@@ -16,21 +18,21 @@ module Danger
     #          A number of issue or pull request for set label.
     # @return  [void]
     #
-    def set_wip(pr)
-      label_names = Array.new()
+    def wip=(pr)
+      label_names = []
       labels.each do |label|
         label_names << label.name
       end
-      puts('exist labels:' + label_names.join(', '))
-      if !has_wip
+      puts("exist labels:" + label_names.join(", "))
+      unless wip?
         begin
-          add_label('WIP')
+          add_label("WIP")
         rescue Octokit::UnprocessableEntity => e
-          puts 'WIP label is already exists.'
+          puts "WIP label is already exists."
           puts e
         end
       end
-      github.api.add_labels_to_an_issue(repo, pr, [get_wip_label])
+      github.api.add_labels_to_an_issue(repo, pr, [wip_label])
     end
 
     # Set any labels to PR by this.
@@ -39,12 +41,11 @@ module Danger
     # @param   [String] name
     #          A new label name.
     # @param   [String] color
-    #          A color, in hex, without the leading #. Default is 'fef2c0'
+    #          A color, in hex, without the leading #. Default is "fef2c0"
     # @return  [void]
     def set(pr, name, color)
-      message = ''
-      has_label = has_label(name)
-      if has_label
+      message = ""
+      if label?(name)
         message = "Set #{name} label. (Color: #{color})"
       else
         message = "Add #{name} new label. (Color: #{color})"
@@ -55,31 +56,32 @@ module Danger
     end
 
     private
+
     # Add new label to repo. Use octolit api.
-    # @See http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_label-instance_method
-    def add_label(name, color='fef2c0')
+    # http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_label-instance_method
+    def add_label(name, color = "fef2c0")
       puts "color: #{color}"
       github.api.add_label(repo, name, color)
     end
 
-    def has_label(name)
+    def label?(name)
       labels.each do |label|
         return true if label.name == name
       end
       false
     end
 
-    def has_wip
+    def wip?
       labels.each do |label|
-        return true if label.name == 'WIP' || label.name == 'in progress'
+        return true if label.name == "WIP" || label.name == "in progress"
       end
       false
     end
 
-    def get_wip_label
-      wip_label = ''
+    def wip_label
+      wip_label = ""
       labels.each do |label|
-        if (label.name == 'WIP' || label.name == 'in progress')
+        if label.name == "WIP" || label.name == "in progress"
           wip_label = label.name
         end
       end

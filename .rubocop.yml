@@ -127,9 +127,6 @@ Metrics/BlockLength:
 Style/MixinGrouping:
   Enabled: false
 
-Style/FileName:
-  Enabled: false
-
 Layout/IndentHeredoc:
   Enabled: false
 
