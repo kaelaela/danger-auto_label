@@ -1,4 +1,6 @@
-### auto_label
+A [Danger](http://danger.systems/ruby/) plugin. ([RubyGems](https://rubygems.org/gems/danger-auto_label))
+
+### danger-auto_label
 
 No more set label to issue or pull request manually.  
 Example, you can set labels simply by changing the PR title.
