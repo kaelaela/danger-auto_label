@@ -55,6 +55,14 @@ module Danger
       puts message
     end
 
+    # Delete label from PR.
+    # @param   [String] name
+    #          Delete label name.
+    # @return  [void]
+    def delete(name)
+      github.api.delete_label!(repo, name)
+    end
+
     private
 
     # Add new label to repo. Use octolit api.
