@@ -23,7 +23,9 @@ Set wip label automatically when the PR title contains '[WIP]'.
   if github.pr_title.include? "[WIP]"
     auto_label.wip=(github.pr_json["number"])
   else
-    auto_label.delete("WIP")
+    auto_label.remove("WIP")
+    # If you want to delete label
+    # auto_label.delete("WIP")
   end
 ```
 
@@ -33,4 +35,6 @@ Set wip label automatically when the PR title contains '[WIP]'.
 
 `set` - Set any labels to PR by this.
 
-`delete` - Delete any labels from PR.
+`delete` - Delete any labels from repository.
+
+`remove` - Remove any labels from PR.
