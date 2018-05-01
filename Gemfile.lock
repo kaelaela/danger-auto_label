@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    danger-auto_label (1.0.0)
+    danger-auto_label (1.1.0)
       danger-plugin-api (~> 1.0)
 
 GEM
@@ -131,4 +131,4 @@ DEPENDENCIES
   yard (~> 0.9.12)
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
