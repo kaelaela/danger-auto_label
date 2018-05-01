@@ -55,12 +55,20 @@ module Danger
       puts message
     end
 
-    # Delete label from PR.
+    # Delete label from repository.
     # @param   [String] name
     #          Delete label name.
     # @return  [void]
     def delete(name)
       github.api.delete_label!(repo, name)
+    end
+
+    # Remove label from PR.
+    # @param   [String] name
+    #          Remove label name.
+    # @return  [void]
+    def remove(name)
+      github.api.remove_label(repo, number, name)
     end
 
     private
