@@ -22,6 +22,8 @@ Set wip label automatically when the PR title contains '[WIP]'.
 ```sample.rb
   if github.pr_title.include? "[WIP]"
     auto_label.wip=(github.pr_json["number"])
+  else
+    auto_label.delete("WIP")
   end
 ```
 
@@ -30,3 +32,5 @@ Set wip label automatically when the PR title contains '[WIP]'.
 `wip=` - Set WIP label to PR.
 
 `set` - Set any labels to PR by this.
+
+`delete` - Delete any labels from PR.
