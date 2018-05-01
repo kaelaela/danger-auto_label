@@ -60,7 +60,12 @@ module Danger
     #          Delete label name.
     # @return  [void]
     def delete(name)
-      github.api.delete_label!(repo, name)
+      begin
+        github.api.delete_label!(repo, name)
+      rescue Octokit::Error => e
+        puts "Error message: \"#{name}\" label is not existing."
+        puts e
+      end
     end
 
     # Remove label from PR.
@@ -68,7 +73,12 @@ module Danger
     #          Remove label name.
     # @return  [void]
     def remove(name)
-      github.api.remove_label(repo, number, name)
+      begin
+        github.api.remove_label(repo, number, name)
+      rescue Octokit::Error => e
+        puts "Error message: \"#{name}\" label is not existing."
+        puts e
+      end
     end
 
     private
