@@ -44,6 +44,8 @@ module Danger
     #          A color, in hex, without the leading #. Default is "fef2c0"
     # @return  [void]
     def set(pr, name, color)
+      return if already_labled?(pr, name)
+
       message = ""
       if label?(name)
         message = "Set #{name} label. (Color: #{color})"
@@ -112,6 +114,10 @@ module Danger
         end
       end
       return wip_label
+    end
+
+    def already_labled?(pr, name)
+      github.api.labels_for_issue(repo, pr).any? { |label| label.name == name }
     end
 
     def labels
