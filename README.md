@@ -5,7 +5,7 @@ A [Danger](http://danger.systems/ruby/) plugin. ([RubyGems](https://rubygems.org
 No more set label to issue or pull request manually.  
 Example, you can set labels simply by changing the PR title.
 
-![sample](gif/sample.gif)
+![sample](https://github.com/kaelaela/danger-auto_label/blob/master/gif/sample.gif)
 
 ### Usage
 
