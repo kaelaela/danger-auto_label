@@ -33,8 +33,31 @@ Set wip label automatically when the PR title contains '[WIP]'.
 
 `wip=` - Set WIP label to PR.
 
+```ruby
+# Add "WIP" label to this Pull Request
+pr_number = github.pr_json["number"]
+auto_label.wip=(pr_number) 
+```
+
 `set` - Set any labels to PR by this.
+
+```ruby
+# Add "Orange Label" with orange color to this Pull Request
+# Note: will create label if it does not exist
+pr_number = github.pr_json["number"]
+auto_label.set(pr_number, "Orange Label", "ff8800") 
+```
 
 `delete` - Delete any labels from repository.
 
+```ruby
+# Remove "Orange Label" from this Repository (use with caution!)
+auto_label.delete("Orange Label") 
+```
+
 `remove` - Remove any labels from PR.
+
+```ruby
+# Remove "Orange Label" from this Pull Request
+auto_label.remove("Orange Label") 
+```
