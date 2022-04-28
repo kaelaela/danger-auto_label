@@ -44,7 +44,7 @@ GEM
     faraday-net_http (1.0.1)
     ffi (1.11.1)
     formatador (0.2.5)
-    git (1.8.1)
+    git (1.11.0)
       rchardet (~> 1.8)
     guard (2.14.1)
       formatador (>= 0.2.4)
